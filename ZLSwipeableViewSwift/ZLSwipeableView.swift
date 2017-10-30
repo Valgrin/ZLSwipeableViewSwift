@@ -53,6 +53,7 @@ open class ZLSwipeableView: UIView {
     open var shouldSwipeView = ZLSwipeableView.defaultShouldSwipeViewHandler()
     open var minTranslationInPercent = CGFloat(0.25)
     open var minVelocityInPointPerSecond = CGFloat(750)
+    open var rotationRange = UIFloatRangeInfinite
     open var allowedDirection = Direction.Horizontal
     open var onlySwipeTopCard = false
 
@@ -262,7 +263,7 @@ extension ZLSwipeableView {
 
     static func defaultAnimateViewHandler() -> AnimateViewHandler {
         func toRadian(_ degree: CGFloat) -> CGFloat {
-            return degree * CGFloat(M_PI / 180)
+            return degree * CGFloat(Double.pi / 180)
         }
 
         func rotateView(_ view: UIView, forDegree degree: CGFloat, duration: TimeInterval, offsetFromCenter offset: CGPoint, swipeableView: ZLSwipeableView,  completion: ((Bool) -> Void)? = nil) {

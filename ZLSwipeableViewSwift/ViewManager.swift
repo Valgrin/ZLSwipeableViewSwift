@@ -172,9 +172,11 @@ class ViewManager : NSObject {
         anchorView.isHidden = true
         
         // attach aView to anchorView
-        let p = view.center
-        viewToAnchorViewAttachmentBehavior = UIAttachmentBehavior(item: view, offsetFromCenter: UIOffset(horizontal: -(p.x - point.x), vertical: -(p.y - point.y)), attachedTo: anchorView, offsetFromCenter: UIOffset.zero)
+        viewToAnchorViewAttachmentBehavior = UIAttachmentBehavior.pinAttachment(with: view, attachedTo: anchorView, attachmentAnchor: point)
         viewToAnchorViewAttachmentBehavior!.length = 0
+        viewToAnchorViewAttachmentBehavior.attachmentRange = swipeableView?.rotationRange ?? UIFloatRangeInfinite
+        viewToAnchorViewAttachmentBehavior.frictionTorque = 10000
+        
         
         // attach anchorView to point
         anchorViewToPointAttachmentBehavior = UIAttachmentBehavior(item: anchorView, offsetFromCenter: UIOffset.zero, attachedToAnchor: point)

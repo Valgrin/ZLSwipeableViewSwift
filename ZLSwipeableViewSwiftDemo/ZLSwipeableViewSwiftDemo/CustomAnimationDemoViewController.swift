@@ -25,6 +25,8 @@ class CustomAnimationDemoViewController: ZLSwipeableViewController {
                 view.transform = transform
                 }, completion: nil)
         }
+        
+        swipeableView.rotationRange = UIFloatRange(minimum: -0.13, maximum: 0.13)
         swipeableView.numberOfActiveView = 10
         swipeableView.animateView = {(view: UIView, index: Int, views: [UIView], swipeableView: ZLSwipeableView) in
             let degree = CGFloat(sin(0.5*Double(index)))
