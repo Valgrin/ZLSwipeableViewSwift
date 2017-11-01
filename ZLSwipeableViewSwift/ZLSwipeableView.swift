@@ -18,6 +18,7 @@ public typealias InterpretDirectionHandler = (_ topView: UIView, _ direction: Di
 public typealias ShouldSwipeHandler = (_ view: UIView, _ movement: Movement, _ swipeableView: ZLSwipeableView) -> Bool
 
 // delegates
+public typealias WillMoveToTopHandler = (_ view: UIView) -> ()
 public typealias DidStartHandler = (_ view: UIView, _ atLocation: CGPoint) -> ()
 public typealias SwipingHandler = (_ view: UIView, _ atLocation: CGPoint, _ translation: CGPoint) -> ()
 public typealias DidEndHandler = (_ view: UIView, _ atLocation: CGPoint) -> ()
@@ -58,6 +59,7 @@ open class ZLSwipeableView: UIView {
     open var onlySwipeTopCard = false
 
     // MARK: Delegate
+    open var willMoveToTop: WillMoveToTopHandler?
     open var didStart: DidStartHandler?
     open var swiping: SwipingHandler?
     open var didEnd: DidEndHandler?
@@ -229,6 +231,7 @@ open class ZLSwipeableView: UIView {
             view.isHidden = shouldBeHidden
             guard !shouldBeHidden else { continue }
             animateView(view, i, activeViews, self)
+            if i == 0 { willMoveToTop?(view) }
         }
     }
 
