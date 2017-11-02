@@ -62,9 +62,6 @@ class ZLSwipeableViewController: UIViewController {
         swipeableView.swiping = {view, location, translation in
             print("Swiping at view location: \(location) translation: \(translation)")
         }
-        swipeableView.willMoveToTop = { view in
-            print("Swiping view will move to top")
-        }
         swipeableView.didEnd = {view, location in
             print("Did end swiping view at location: \(location)")
         }
