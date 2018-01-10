@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author             = { "Zhixuan Lai" => "zhxnlai@gmail.com" }
   s.social_media_url   = "http://twitter.com/ZhixuanLai"
 
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/zhxnlai/ZLSwipeableViewSwift.git", :tag => "0.0.8" }
   s.source_files  = "ZLSwipeableViewSwift/*.swift"
