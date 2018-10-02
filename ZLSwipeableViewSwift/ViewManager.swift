@@ -174,7 +174,7 @@ class ViewManager : NSObject {
         // attach aView to anchorView
         viewToAnchorViewAttachmentBehavior = UIAttachmentBehavior.pinAttachment(with: view, attachedTo: anchorView, attachmentAnchor: point)
         viewToAnchorViewAttachmentBehavior!.length = 0
-        viewToAnchorViewAttachmentBehavior.attachmentRange = swipeableView?.rotationRange ?? UIFloatRangeInfinite
+        viewToAnchorViewAttachmentBehavior.attachmentRange = swipeableView?.rotationRange ?? UIFloatRange.infinite
         viewToAnchorViewAttachmentBehavior.frictionTorque = 10000
         
         
