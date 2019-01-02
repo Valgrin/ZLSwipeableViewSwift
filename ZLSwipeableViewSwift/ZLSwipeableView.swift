@@ -202,6 +202,9 @@ open class ZLSwipeableView: UIView {
         }
 
         let viewManager = ViewManager(view: view, containerView: containerView, index: index, miscContainerView: miscContainerView, animator: animator, swipeableView: self)
+        if didTap != nil {
+            viewManager.addTapRecognizer()
+        }
         viewManagers[view] = viewManager
     }
 

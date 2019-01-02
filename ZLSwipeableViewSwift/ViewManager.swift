@@ -143,7 +143,11 @@ class ViewManager : NSObject {
     }
     
     func addTapRecognizer() {
-        guard !(view.gestureRecognizers ?? []).contains(where: { $0 is ZLTapGestureRecognizer }) else { return }
+        for gestureRecognizer in view.gestureRecognizers! {
+            if gestureRecognizer.isKind(of: ZLTapGestureRecognizer.classForCoder()) {
+                view.removeGestureRecognizer(gestureRecognizer)
+            }
+        }
 
         view.addGestureRecognizer(ZLTapGestureRecognizer(target: self, action: #selector(ViewManager.handleTap(_:))))
     }
