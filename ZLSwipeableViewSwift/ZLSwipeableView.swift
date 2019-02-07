@@ -189,7 +189,7 @@ open class ZLSwipeableView: UIView {
     }
 
     // MARK: Private APIs
-    fileprivate func allViews() -> [UIView] {
+    open func allViews() -> [UIView] {
         return containerView.subviews
     }
 
